@@ -1,0 +1,35 @@
+--Create a convenience store database
+
+CREATE TABLE Store_Inventory (id INTEGER PRIMARY KEY, item TEXT, description TEXT, price INTEGER, stock INTEGER);
+
+INSERT INTO Store_Inventory VALUES (1, "Lays Classic", "SNACKS", 1.99, 35);
+INSERT INTO Store_Inventory VALUES (2, "Gatorade", "DRINKS", 3.49, 40);
+INSERT INTO Store_Inventory VALUES (3, "SMART Water", "DRINKS", 2.50, 50);
+INSERT INTO Store_Inventory VALUES (4, "Apple Juice", "DRINKS", 2.50, 40);
+INSERT INTO Store_Inventory VALUES (5, "Advil 6pk", "MEDICATIONS", 4.99, 25);
+INSERT INTO Store_Inventory VALUES (6, "Pepto Bismal 6pk", "MEDICATIONS", 4.99, 25);
+INSERT INTO Store_Inventory VALUES (7, "First Aid Kit", "MEDICATIONS", 6.99, 30);
+INSERT INTO Store_Inventory VALUES (8, "Slim Jims", "SNACKS", 1.25, 30);
+INSERT INTO Store_Inventory VALUES (9, "Colgate Travel Toothpaste", "HYGIENE", 2.99, 20);
+INSERT INTO Store_Inventory VALUES (10, "Menstruation Pads/Tampons 6pk", "HYGIENE", 4.99, 15);
+INSERT INTO Store_Inventory VALUES (11, "Earbuds for iPhone/Android", "MISCELLANEOUS", 7.99, 15);
+INSERT INTO Store_Inventory VALUES (12, "USB-C Charging Cable", "MISCELLANEOUS", 6.99, 20);
+INSERT INTO Store_Inventory VALUES (13, "TWIX Chocolate Bar", "CANDY", 1.99, 30);
+INSERT INTO Store_Inventory VALUES (14, "HERSHEY Bar", "CANDY", 1.99, 30);
+INSERT INTO Store_Inventory VALUES (15, "HARIBO Gummy Bears", "CANDY", 2.50, 25);
+
+--display the database ordered by price. 
+SELECT * from Store_Inventory
+ORDER BY price;
+
+--what is the avg price of items in the Drinks section? 
+SELECT AVG(price) "avg DRINKS item price"
+FROM Store_Inventory
+where description='DRINKS'; 
+
+--what are the most 5 stocked items? 
+SELECT item, price, stock
+FROM Store_Inventory
+order by stock desc
+limit 5; 
+
